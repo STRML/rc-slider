@@ -1,14 +1,14 @@
-webpackJsonp([1],{
+webpackJsonp([4],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(325);
+	module.exports = __webpack_require__(328);
 
 
 /***/ },
 
-/***/ 325:
+/***/ 328:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19,7 +19,9 @@ webpackJsonp([1],{
 	var ReactDOM = __webpack_require__(34);
 	var Slider = __webpack_require__(180);
 	
-	var style = { width: 400, margin: 50 };
+	var style = { float: 'left', width: 160, height: 400, marginBottom: 160, marginLeft: 50 };
+	var parentStyle = { overflow: 'hidden' };
+	
 	var marks = {
 	  '-10': '-10°C',
 	  0: React.createElement(
@@ -48,7 +50,7 @@ webpackJsonp([1],{
 	
 	ReactDOM.render(React.createElement(
 	  'div',
-	  null,
+	  { style: parentStyle },
 	  React.createElement(
 	    'div',
 	    { style: style },
@@ -57,7 +59,7 @@ webpackJsonp([1],{
 	      null,
 	      'Slider with marks, `step=null`'
 	    ),
-	    React.createElement(Slider, { min: -10, marks: marks, step: null, onChange: log, defaultValue: 20 })
+	    React.createElement(Slider, { vertical: true, min: -10, marks: marks, step: null, onChange: log, defaultValue: 20 })
 	  ),
 	  React.createElement(
 	    'div',
@@ -67,7 +69,7 @@ webpackJsonp([1],{
 	      null,
 	      'Slider with marks and steps'
 	    ),
-	    React.createElement(Slider, { dots: true, min: -10, marks: marks, step: 10, onChange: log, defaultValue: 20 })
+	    React.createElement(Slider, { vertical: true, dots: true, min: -10, marks: marks, step: 10, onChange: log, defaultValue: 20 })
 	  ),
 	  React.createElement(
 	    'div',
@@ -77,7 +79,7 @@ webpackJsonp([1],{
 	      null,
 	      'Slider with marks, `included=false`'
 	    ),
-	    React.createElement(Slider, { min: -10, marks: marks, included: false, defaultValue: 20 })
+	    React.createElement(Slider, { vertical: true, min: -10, marks: marks, included: false, defaultValue: 20 })
 	  ),
 	  React.createElement(
 	    'div',
@@ -87,7 +89,7 @@ webpackJsonp([1],{
 	      null,
 	      'Slider with marks and steps, `included=false`'
 	    ),
-	    React.createElement(Slider, { min: -10, marks: marks, step: 10, included: false, defaultValue: 20 })
+	    React.createElement(Slider, { vertical: true, min: -10, marks: marks, step: 10, included: false, defaultValue: 20 })
 	  ),
 	  React.createElement(
 	    'div',
@@ -97,7 +99,7 @@ webpackJsonp([1],{
 	      null,
 	      'Range with marks'
 	    ),
-	    React.createElement(Slider, { min: -10, range: true, marks: marks, onChange: log, defaultValue: [20, 40] })
+	    React.createElement(Slider, { vertical: true, min: -10, range: true, marks: marks, onChange: log, defaultValue: [20, 40] })
 	  ),
 	  React.createElement(
 	    'div',
@@ -107,11 +109,13 @@ webpackJsonp([1],{
 	      null,
 	      'Range with marks and steps'
 	    ),
-	    React.createElement(Slider, { min: -10, range: true, marks: marks, step: 10, onChange: log, defaultValue: [20, 40] })
+	    React.createElement(Slider, { vertical: true, min: -10, range: true, marks: marks, step: 10,
+	      onChange: log, defaultValue: [20, 40]
+	    })
 	  )
 	), document.getElementById('__react-content'));
 
 /***/ }
 
 });
-//# sourceMappingURL=marks.js.map
+//# sourceMappingURL=v-marks.js.map

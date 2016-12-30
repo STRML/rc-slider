@@ -1,14 +1,14 @@
-webpackJsonp([2],{
+webpackJsonp([5],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(326);
+	module.exports = __webpack_require__(329);
 
 
 /***/ },
 
-/***/ 326:
+/***/ 329:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20,7 +20,8 @@ webpackJsonp([2],{
 	var ReactDOM = __webpack_require__(34);
 	var Slider = __webpack_require__(180);
 	
-	var style = { width: 400, margin: 50 };
+	var style = { float: 'left', width: 180, height: 400, marginBottom: 160, marginLeft: 50 };
+	var parentStyle = { overflow: 'hidden' };
 	
 	function log(value) {
 	  console.log(value);
@@ -57,7 +58,10 @@ webpackJsonp([2],{
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      null,
+	      { style: style },
+	      React.createElement(Slider, { range: true, vertical: true, allowCross: false, value: this.state.value,
+	        onChange: this.onSliderChange
+	      }),
 	      React.createElement(
 	        'label',
 	        null,
@@ -76,10 +80,7 @@ webpackJsonp([2],{
 	        'button',
 	        { onClick: this.handleApply },
 	        'Apply'
-	      ),
-	      React.createElement('br', null),
-	      React.createElement('br', null),
-	      React.createElement(Slider, { range: true, allowCross: false, value: this.state.value, onChange: this.onSliderChange })
+	      )
 	    );
 	  }
 	});
@@ -108,7 +109,10 @@ webpackJsonp([2],{
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      null,
+	      { style: style },
+	      React.createElement(Slider, { range: true, vertical: true, defaultValue: [20, 50], min: this.state.min, max: this.state.max,
+	        onChange: this.onSliderChange
+	      }),
 	      React.createElement(
 	        'label',
 	        null,
@@ -121,19 +125,14 @@ webpackJsonp([2],{
 	        null,
 	        'Max: '
 	      ),
-	      React.createElement('input', { type: 'number', value: this.state.max, onChange: this.onMaxChange }),
-	      React.createElement('br', null),
-	      React.createElement('br', null),
-	      React.createElement(Slider, { range: true, defaultValue: [20, 50], min: this.state.min, max: this.state.max,
-	        onChange: this.onSliderChange
-	      })
+	      React.createElement('input', { type: 'number', value: this.state.max, onChange: this.onMaxChange })
 	    );
 	  }
 	});
 	
 	ReactDOM.render(React.createElement(
 	  'div',
-	  null,
+	  { style: parentStyle },
 	  React.createElement(
 	    'div',
 	    { style: style },
@@ -142,7 +141,7 @@ webpackJsonp([2],{
 	      null,
 	      'Basic Range\uFF0C`allowCross=false`'
 	    ),
-	    React.createElement(Slider, { range: true, allowCross: false, defaultValue: [0, 20], onChange: log })
+	    React.createElement(Slider, { range: true, vertical: true, allowCross: false, defaultValue: [0, 20], onChange: log })
 	  ),
 	  React.createElement(
 	    'div',
@@ -152,7 +151,7 @@ webpackJsonp([2],{
 	      null,
 	      'Basic Range\uFF0C`step=20` '
 	    ),
-	    React.createElement(Slider, { range: true, step: 20, defaultValue: [20, 20], onBeforeChange: log })
+	    React.createElement(Slider, { range: true, vertical: true, step: 20, defaultValue: [20, 40], onBeforeChange: log })
 	  ),
 	  React.createElement(
 	    'div',
@@ -162,7 +161,7 @@ webpackJsonp([2],{
 	      null,
 	      'Basic Range\uFF0C`step=20, dots` '
 	    ),
-	    React.createElement(Slider, { range: true, dots: true, step: 20, defaultValue: [20, 40], onAfterChange: log })
+	    React.createElement(Slider, { range: true, vertical: true, dots: true, step: 20, defaultValue: [20, 40], onAfterChange: log })
 	  ),
 	  React.createElement(
 	    'div',
@@ -172,17 +171,7 @@ webpackJsonp([2],{
 	      null,
 	      'Controlled Range'
 	    ),
-	    React.createElement(Slider, { range: true, value: [20, 40] })
-	  ),
-	  React.createElement(
-	    'div',
-	    { style: style },
-	    React.createElement(
-	      'p',
-	      null,
-	      'Multi Range'
-	    ),
-	    React.createElement(Slider, { range: 3, value: [20, 40, 60, 80] })
+	    React.createElement(Slider, { range: true, vertical: true, value: [20, 40] })
 	  ),
 	  React.createElement(
 	    'div',
@@ -209,4 +198,4 @@ webpackJsonp([2],{
 /***/ }
 
 });
-//# sourceMappingURL=range.js.map
+//# sourceMappingURL=v-range.js.map

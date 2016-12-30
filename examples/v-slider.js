@@ -1,14 +1,14 @@
-webpackJsonp([3],{
+webpackJsonp([6],{
 
 /***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(327);
+	module.exports = __webpack_require__(330);
 
 
 /***/ },
 
-/***/ 327:
+/***/ 330:
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20,7 +20,8 @@ webpackJsonp([3],{
 	var ReactDOM = __webpack_require__(34);
 	var Slider = __webpack_require__(180);
 	
-	var style = { width: 400, margin: 50 };
+	var style = { float: 'left', width: 200, height: 400, marginBottom: 160, marginLeft: 50 };
+	var parentStyle = { overflow: 'hidden' };
 	
 	function log(value) {
 	  console.log(value);
@@ -43,13 +44,8 @@ webpackJsonp([3],{
 	      value: value
 	    });
 	  },
-	  onAfterChange: function onAfterChange(value) {
-	    console.log(value);
-	  },
 	  render: function render() {
-	    return React.createElement(Slider, { value: this.state.value,
-	      onChange: this.onSliderChange, onAfterChange: this.onAfterChange
-	    });
+	    return React.createElement(Slider, { vertical: true, value: this.state.value, onChange: this.onSliderChange });
 	  }
 	});
 	
@@ -77,7 +73,15 @@ webpackJsonp([3],{
 	  render: function render() {
 	    return React.createElement(
 	      'div',
-	      null,
+	      { style: style },
+	      React.createElement(
+	        'p',
+	        null,
+	        'Slider with dynamic `min` `max`'
+	      ),
+	      React.createElement(Slider, { vertical: true, defaultValue: 50, min: this.state.min, max: this.state.max,
+	        onChange: this.onSliderChange
+	      }),
 	      React.createElement(
 	        'label',
 	        null,
@@ -90,19 +94,14 @@ webpackJsonp([3],{
 	        null,
 	        'Max: '
 	      ),
-	      React.createElement('input', { type: 'number', value: this.state.max, onChange: this.onMaxChange }),
-	      React.createElement('br', null),
-	      React.createElement('br', null),
-	      React.createElement(Slider, { defaultValue: 50, min: this.state.min, max: this.state.max,
-	        onChange: this.onSliderChange
-	      })
+	      React.createElement('input', { type: 'number', value: this.state.max, onChange: this.onMaxChange })
 	    );
 	  }
 	});
 	
 	ReactDOM.render(React.createElement(
 	  'div',
-	  null,
+	  { style: parentStyle },
 	  React.createElement(
 	    'div',
 	    { style: style },
@@ -111,7 +110,7 @@ webpackJsonp([3],{
 	      null,
 	      'Basic Slider'
 	    ),
-	    React.createElement(Slider, { tipTransitionName: 'rc-slider-tooltip-zoom-down', onChange: log })
+	    React.createElement(Slider, { vertical: true, tipTransitionName: 'rc-slider-tooltip-zoom-down', onChange: log })
 	  ),
 	  React.createElement(
 	    'div',
@@ -121,7 +120,7 @@ webpackJsonp([3],{
 	      null,
 	      'Basic Slider\uFF0C`step=20`'
 	    ),
-	    React.createElement(Slider, { step: 20, defaultValue: 50, onBeforeChange: log })
+	    React.createElement(Slider, { vertical: true, step: 20, defaultValue: 50, onBeforeChange: log })
 	  ),
 	  React.createElement(
 	    'div',
@@ -131,7 +130,7 @@ webpackJsonp([3],{
 	      null,
 	      'Basic Slider\uFF0C`step=20, dots`'
 	    ),
-	    React.createElement(Slider, { dots: true, step: 20, defaultValue: 100, onAfterChange: log })
+	    React.createElement(Slider, { vertical: true, dots: true, step: 20, defaultValue: 100, onAfterChange: log })
 	  ),
 	  React.createElement(
 	    'div',
@@ -141,7 +140,7 @@ webpackJsonp([3],{
 	      null,
 	      'Basic Slider with `tipFormatter`'
 	    ),
-	    React.createElement(Slider, { tipFormatter: percentFormatter,
+	    React.createElement(Slider, { vertical: true, tipFormatter: percentFormatter,
 	      tipTransitionName: 'rc-slider-tooltip-zoom-down', onChange: log
 	    })
 	  ),
@@ -153,7 +152,7 @@ webpackJsonp([3],{
 	      null,
 	      'Basic Slider without tooltip'
 	    ),
-	    React.createElement(Slider, { tipFormatter: null, onChange: log })
+	    React.createElement(Slider, { vertical: true, tipFormatter: null, onChange: log })
 	  ),
 	  React.createElement(
 	    'div',
@@ -163,7 +162,7 @@ webpackJsonp([3],{
 	      null,
 	      'Controlled Slider'
 	    ),
-	    React.createElement(Slider, { value: 50 })
+	    React.createElement(Slider, { vertical: true, value: 50 })
 	  ),
 	  React.createElement(
 	    'div',
@@ -177,12 +176,7 @@ webpackJsonp([3],{
 	  ),
 	  React.createElement(
 	    'div',
-	    { style: style },
-	    React.createElement(
-	      'p',
-	      null,
-	      'Slider with dynamic `min` `max`'
-	    ),
+	    null,
 	    React.createElement(DynamicBounds, null)
 	  )
 	), document.getElementById('__react-content'));
@@ -190,4 +184,4 @@ webpackJsonp([3],{
 /***/ }
 
 });
-//# sourceMappingURL=slider.js.map
+//# sourceMappingURL=v-slider.js.map
